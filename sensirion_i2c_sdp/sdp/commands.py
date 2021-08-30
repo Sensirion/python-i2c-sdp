@@ -22,10 +22,14 @@
 # flake8: noqa
 
 from __future__ import absolute_import, division, print_function
-from sensirion_i2c_driver import SensirionI2cCommand, CrcCalculator
-from struct import pack, unpack
 
 import logging
+from struct import unpack
+
+from sensirion_i2c_driver import SensirionI2cCommand, CrcCalculator
+
+from sensirion_i2c_sdp.sdp.response_types import SdpDifferentialPressure, SdpTemperature
+
 log = logging.getLogger(__name__)
 
 
@@ -33,6 +37,7 @@ class SdpI2cCmdBase(SensirionI2cCommand):
     """
     SDP I²C base command.
     """
+
     def __init__(self, command, tx_data, rx_length, read_delay, timeout,
                  post_processing_time=0.0):
         """
@@ -81,6 +86,7 @@ class SdpI2cCmdBase(SensirionI2cCommand):
             command_bytes=2,
             post_processing_time=post_processing_time,
         )
+
 
 class SdpI2cCmdStartContinuousMeasurementWithMassFlowTCompAndAveraging(SdpI2cCmdBase):
     """
@@ -307,7 +313,7 @@ class SdpI2cCmdReadMeasurement(SdpI2cCmdBase):
         Constructor.
         """
         super(SdpI2cCmdReadMeasurement, self).__init__(
-            command=0x0001,
+            command=None,
             tx_data=None,
             rx_length=9,
             read_delay=0.001,
@@ -323,19 +329,16 @@ class SdpI2cCmdReadMeasurement(SdpI2cCmdBase):
         :param bytes data:
             Received raw bytes from the read operation.
         :return:
-            - differential_pressure (int) -
+            - differential_pressure (:py:class:sensirion_i2c_sdp.sdp.response_types.SdpDifferentialPressure) -
               The digital calibrated differential pressure signal read from the
               sensor is a signed integer number (two's complement number). The
-              integer value can be converted to the physical value by dividing
-              it by the scale factor. differential pressure in Pascal = sensor
-              output / scale factor
-            - temperature (int) -
+              integer value is converted to the physical value by dividing
+              it by the scale factor, which is returned with every measurement.
+            - temperature (:py:class:sensirion_i2c_sdp.sdp.reasponse_types.SdpTemperature) -
               The digital calibrated temperature signal read from the sensor is
               a signed integer number (two's complement number). The integer
-              value can be converted to the physical value by dividing it by a
-              scale factor of 200. temperature in °C = sensor output / 200
-            - scaling_factor (int) -
-              Scaling factor differential pressure
+              value is converted to the physical value by dividing it by a
+              scale factor of 200.
         :rtype: tuple
         :raise ~sensirion_i2c_driver.errors.I2cChecksumError:
             If a received CRC was wrong.
@@ -344,12 +347,10 @@ class SdpI2cCmdReadMeasurement(SdpI2cCmdBase):
         checked_data = SdpI2cCmdBase.interpret_response(self, data)
 
         # convert raw received data into proper data types
-        differential_pressure = int(unpack(">h", checked_data[0:2])[0])  # int16
-        temperature = int(unpack(">h", checked_data[2:4])[0])  # int16
+        differential_pressure_ticks = int(unpack(">h", checked_data[0:2])[0])  # int16
+        temperature_ticks = int(unpack(">h", checked_data[2:4])[0])  # int16
         scaling_factor = int(unpack(">h", checked_data[4:6])[0])  # int16
-        return differential_pressure, \
-            temperature, \
-            scaling_factor
+        return SdpDifferentialPressure(differential_pressure_ticks, scaling_factor), SdpTemperature(temperature_ticks)
 
 
 class SdpI2cCmdEnterSleepMode(SdpI2cCmdBase):
@@ -461,8 +462,7 @@ class SdpI2cCmdReadProductIdentifier(SdpI2cCmdBase):
               32 bit unique product and revision number. The number is listed
               in the datasheet. Note that the last 8 bits are the revision
               number and can be subject to change.
-            - serial_number (list(int)) -
-              64-bit unique serial number
+            - serial_number (unsigned long long) 64-bit unique serial number
         :rtype: tuple
         :raise ~sensirion_i2c_driver.errors.I2cChecksumError:
             If a received CRC was wrong.
@@ -472,7 +472,5 @@ class SdpI2cCmdReadProductIdentifier(SdpI2cCmdBase):
 
         # convert raw received data into proper data types
         product_number = int(unpack(">I", checked_data[0:4])[0])  # uint32
-        serial_number = [int(ii) for ii in unpack(">{}B".format(len(checked_data[4:12]) // 1), checked_data[4:12])]  # list(uint8)
-        return product_number, \
-            serial_number
-
+        serial_number = int(unpack(">Q", checked_data[4:12])[0])  # uint64
+        return product_number, serial_number
