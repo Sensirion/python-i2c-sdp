@@ -71,5 +71,7 @@ def sdp(bridge):
 
     yield sdp
 
+    sdp.stop_continuous_measurement()
+
     # make sure the channel is powered off after executing tests
     bridge.switch_supply_off(SensorBridgePort.ONE)
