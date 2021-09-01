@@ -1,0 +1,1188 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>API Documentation &mdash; sensirion-i2c-sdp 0.1.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/banner.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Quick Start" href="quickstart.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> sensirion-i2c-sdp
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sdp">SDP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-sensirion_i2c_sdp.sdp.device">SdpI2cDevice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-sensirion_i2c_sdp.sdp.commands">SdpI2cCommand</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-types">Data Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-sensirion_i2c_sdp.sdp.response_types">Response Types</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">sensirion-i2c-sdp</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>API Documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="api-documentation">
+<h1>API Documentation<a class="headerlink" href="#api-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="sdp">
+<h2>SDP<a class="headerlink" href="#sdp" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-sensirion_i2c_sdp.sdp.device">
+<span id="sdpi2cdevice"></span><h3>SdpI2cDevice<a class="headerlink" href="#module-sensirion_i2c_sdp.sdp.device" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="sensirion_i2c_sdp.sdp.device.SdpI2cDevice">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sdp.sdp.device.</code><code class="descname">SdpI2cDevice</code><span class="sig-paren">(</span><em>connection</em>, <em>slave_address=37</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/device.html#SdpI2cDevice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.device.SdpI2cDevice" title="Permalink to this definition">¶</a></dt>
+<dd><p>SDP I²C device class to allow executing I²C commands.</p>
+<p>Adjust the I2C address according to your setup.</p>
+<p>SDP8xx can support 0x25 and 0x26.
+SDP3x can support 0x21, 0x22 and 0x23.</p>
+<p>Please refer to the dedicated Datasheet for more details on the supported I2C address range.</p>
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.device.SdpI2cDevice.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>connection</em>, <em>slave_address=37</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/device.html#SdpI2cDevice.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.device.SdpI2cDevice.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs a new SDP I²C device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>connection</strong> (<a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.connection.I2cConnection" title="(in Sensirion I²C Python Driver v1.0.1)"><em>I2cConnection</em></a>) – The I²C connection to use for communication.</li>
+<li><strong>slave_address</strong> (<em>byte</em>) – The I²C slave address, defaults to 0x25.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.device.SdpI2cDevice.read_product_identifier">
+<code class="descname">read_product_identifier</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/device.html#SdpI2cDevice.read_product_identifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.device.SdpI2cDevice.read_product_identifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read the product identifier and serial number of the sensor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The product number and serial number.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">tuple</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.device.SdpI2cDevice.start_continuous_measurement_with_mass_flow_t_comp_and_averaging">
+<code class="descname">start_continuous_measurement_with_mass_flow_t_comp_and_averaging</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/device.html#SdpI2cDevice.start_continuous_measurement_with_mass_flow_t_comp_and_averaging"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.device.SdpI2cDevice.start_continuous_measurement_with_mass_flow_t_comp_and_averaging" title="Permalink to this definition">¶</a></dt>
+<dd><p>This command starts continuous measurements with mass flow temperature
+compensation and the average till read feature.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The measurement command must only be sent once, if acknowledged.
+The command must not be resent or other commands must not be sent
+until the stop measurement command has been issued. After the
+start measurement command is sent, the first measurement result
+is available after 8ms. Small accuracy deviations (few % of
+reading) can occur during the next 12ms. The measured values are
+updated every 0.5ms and can be read using the read measurement
+interface.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.device.SdpI2cDevice.start_continuous_measurement_with_mass_flow_t_comp">
+<code class="descname">start_continuous_measurement_with_mass_flow_t_comp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/device.html#SdpI2cDevice.start_continuous_measurement_with_mass_flow_t_comp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.device.SdpI2cDevice.start_continuous_measurement_with_mass_flow_t_comp" title="Permalink to this definition">¶</a></dt>
+<dd><p>This command starts continuous measurements with mass flow temperature
+compensation.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The measurement command must only be sent once, if acknowledged.
+The command must not be resent or other commands must not be sent
+until the stop measurement command has been issued. After the
+start measurement command is sent, the first measurement result
+is available after 8ms. Small accuracy deviations (few % of
+reading) can occur during the next 12ms. The measured values are
+updated every 0.5ms and can be read using the read measurement
+interface.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.device.SdpI2cDevice.start_continuous_measurement_with_diff_pressure_t_comp_and_averaging">
+<code class="descname">start_continuous_measurement_with_diff_pressure_t_comp_and_averaging</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/device.html#SdpI2cDevice.start_continuous_measurement_with_diff_pressure_t_comp_and_averaging"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.device.SdpI2cDevice.start_continuous_measurement_with_diff_pressure_t_comp_and_averaging" title="Permalink to this definition">¶</a></dt>
+<dd><p>This command starts continuous measurements with differential pressure
+temperature compensation and the average till read feature.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The measurement command must only be sent once, if acknowledged.
+The command must not be resent or other commands must not be sent
+until the stop measurement command has been issued. After the
+start measurement command is sent, the first measurement result
+is available after 8ms. Small accuracy deviations (few % of
+reading) can occur during the next 12ms. The measured values are
+updated every 0.5ms and can be read using the read measurement
+interface.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.device.SdpI2cDevice.start_continuous_measurement_with_diff_pressure_t_comp">
+<code class="descname">start_continuous_measurement_with_diff_pressure_t_comp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/device.html#SdpI2cDevice.start_continuous_measurement_with_diff_pressure_t_comp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.device.SdpI2cDevice.start_continuous_measurement_with_diff_pressure_t_comp" title="Permalink to this definition">¶</a></dt>
+<dd><p>This command starts continuous measurements with differential pressure
+temperature compensation.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The measurement command must only be sent once, if acknowledged.
+The command must not be resent or other commands must not be sent
+until the stop measurement command has been issued. After the
+start measurement command is sent, the first measurement result
+is available after 8ms. Small accuracy deviations (few % of
+reading) can occur during the next 12ms. The measured values are
+updated every 0.5ms and can be read using the read measurement
+interface.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.device.SdpI2cDevice.trigger_measurement_with_mass_flow_t_comp_and_averaging">
+<code class="descname">trigger_measurement_with_mass_flow_t_comp_and_averaging</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/device.html#SdpI2cDevice.trigger_measurement_with_mass_flow_t_comp_and_averaging"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.device.SdpI2cDevice.trigger_measurement_with_mass_flow_t_comp_and_averaging" title="Permalink to this definition">¶</a></dt>
+<dd><p>This command triggers a single shot measurement with mass flow temperature
+compensation.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">During a triggered measurement the sensor measures both
+differential pressure and temperature. The measurement starts
+directly after the command has been sent. The command needs to be
+repeated with every measurement. During the 45ms that the sensor
+is measuring, no command can be sent to the sensor. After the
+45ms the result can be read out and any command can be sent to
+the sensor.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.device.SdpI2cDevice.trigger_measurement_with_diff_pressure_t_comp_and_averaging">
+<code class="descname">trigger_measurement_with_diff_pressure_t_comp_and_averaging</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/device.html#SdpI2cDevice.trigger_measurement_with_diff_pressure_t_comp_and_averaging"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.device.SdpI2cDevice.trigger_measurement_with_diff_pressure_t_comp_and_averaging" title="Permalink to this definition">¶</a></dt>
+<dd><p>This command triggers a single shot measurement with differential pressure
+temperature compensation.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">During a triggered measurement the sensor measures both
+differential pressure and temperature. The measurement starts
+directly after the command has been sent. The command needs to be
+repeated with every measurement. During the 45ms that the sensor
+is measuring, no command can be sent to the sensor. After the
+45ms the result can be read out and any command can be sent to
+the sensor.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.device.SdpI2cDevice.stop_continuous_measurement">
+<code class="descname">stop_continuous_measurement</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/device.html#SdpI2cDevice.stop_continuous_measurement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.device.SdpI2cDevice.stop_continuous_measurement" title="Permalink to this definition">¶</a></dt>
+<dd><p>This command stops the continuous measurement and puts the sensor in idle
+mode. It powers off the heater and makes the sensor receptive to another
+command after 500us. The Stop command is also required when switching
+between different continuous measurement commands.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.device.SdpI2cDevice.read_measurement">
+<code class="descname">read_measurement</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/device.html#SdpI2cDevice.read_measurement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.device.SdpI2cDevice.read_measurement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read Measurement from sensor.</p>
+<p>After a start continuous measurement commands, the measurement results can
+be read out at most every 0.5ms. After a triggered measurement command, the
+results can be read out when the sensor is finished with the measurement.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><ul class="simple">
+<li>differential_pressure (:py:class:sensirion_i2c_sdp.sdp.response_types.SdpDifferentialPressure)
+Differential Pressure response object</li>
+<li>temperature (:py:class:sensirion_i2c_sdp.sdp.reasponse_types.SdpTemperature)
+Temperature response object.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">tuple</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.device.SdpI2cDevice.enter_sleep_mode">
+<code class="descname">enter_sleep_mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/device.html#SdpI2cDevice.enter_sleep_mode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.device.SdpI2cDevice.enter_sleep_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>In sleep mode the sensor uses the minimum amount of current. The mode can
+only be entered from idle mode, i.e. when the sensor is not measuring. This
+mode is particularly useful for battery operated devices. To minimize the
+current in this mode, the complexity of the sleep mode circuit has been
+reduced as much as possible, which is mainly reflected by the way the
+sensor exits the sleep mode. In sleep mode the sensor cannot be soft reset.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Triggered mode: the sleep command can be sent after the result
+have been read out and the sensor is in idle mode. Continuous
+mode: the sleep command can be sent after a stop continuous
+measurement command has been issued and the sensor is in idle
+mode.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.device.SdpI2cDevice.exit_sleep_mode">
+<code class="descname">exit_sleep_mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/device.html#SdpI2cDevice.exit_sleep_mode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.device.SdpI2cDevice.exit_sleep_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exit sleep mode. See the data sheet for more detailed information</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_i2c_sdp.sdp.device.SdpI2cDevice.connection">
+<code class="descname">connection</code><a class="headerlink" href="#sensirion_i2c_sdp.sdp.device.SdpI2cDevice.connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the used I²C connection.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The used I²C connection.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.connection.I2cConnection" title="(in Sensirion I²C Python Driver v1.0.1)">I2cConnection</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.device.SdpI2cDevice.execute">
+<code class="descname">execute</code><span class="sig-paren">(</span><em>command</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_i2c_sdp.sdp.device.SdpI2cDevice.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute an I²C command on this device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>command</strong> (<a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.command.I2cCommand" title="(in Sensirion I²C Python Driver v1.0.1)"><em>I2cCommand</em></a>) – The command to be executed.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The interpreted response of the executed command.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Depends on the executed command.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_i2c_sdp.sdp.device.SdpI2cDevice.slave_address">
+<code class="descname">slave_address</code><a class="headerlink" href="#sensirion_i2c_sdp.sdp.device.SdpI2cDevice.slave_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the I²C slave address.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The I²C slave address.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">byte</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-sensirion_i2c_sdp.sdp.commands">
+<span id="sdpi2ccommand"></span><h3>SdpI2cCommand<a class="headerlink" href="#module-sensirion_i2c_sdp.sdp.commands" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdBase">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sdp.sdp.commands.</code><code class="descname">SdpI2cCmdBase</code><span class="sig-paren">(</span><em>command</em>, <em>tx_data</em>, <em>rx_length</em>, <em>read_delay</em>, <em>timeout</em>, <em>post_processing_time=0.0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/commands.html#SdpI2cCmdBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>SDP I²C base command.</p>
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdBase.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>command</em>, <em>tx_data</em>, <em>rx_length</em>, <em>read_delay</em>, <em>timeout</em>, <em>post_processing_time=0.0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/commands.html#SdpI2cCmdBase.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdBase.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs a new SDP I²C command.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>command</strong> (<em>int/None</em>) – The command ID to be sent to the device. None means that no
+command will be sent, i.e. only <code class="docutils literal notranslate"><span class="pre">tx_data</span></code> (if not None) will
+be sent. No CRC is added to these bytes since the command ID
+usually already contains a CRC.</li>
+<li><strong>tx_data</strong> (<em>bytes-like/list/None</em>) – Bytes to be extended with CRCs and then sent to the I²C device.
+None means that no write header will be sent at all (if <code class="docutils literal notranslate"><span class="pre">command</span></code>
+is None too). An empty list means to send the write header (even if
+<code class="docutils literal notranslate"><span class="pre">command</span></code> is None), but without data following it.</li>
+<li><strong>rx_length</strong> (<em>int/None</em>) – Number of bytes to be read from the I²C device, including CRC
+bytes. None means that no read header is sent at all. Zero means
+to send the read header, but without reading any data.</li>
+<li><strong>read_delay</strong> (<em>float</em>) – Delay (in Seconds) to be inserted between the end of the write
+operation and the beginning of the read operation. This is needed
+if the device needs some time to prepare the RX data, e.g. if it
+has to perform a measurement. Set to 0.0 to indicate that no delay
+is needed, i.e. the device does not need any processing time.</li>
+<li><strong>timeout</strong> (<em>float</em>) – Timeout (in Seconds) to be used in case of clock stretching. If the
+device stretches the clock longer than this value, the transceive
+operation will be aborted with a timeout error. Set to 0.0 to
+indicate that the device will not stretch the clock for this
+command.</li>
+<li><strong>post_processing_time</strong> (<em>float</em>) – Maximum time in seconds the device needs for post processing of
+this command until it is ready to receive the next command. For
+example after a device reset command, the device might need some
+time until it is ready again. Usually this is 0.0s, i.e. no post
+processing is needed.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdBase.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdBase.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the CRCs of the received data from the device and returns
+the data with all CRCs removed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Received raw bytes from the read operation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The received bytes, or None if there is no data received.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bytes or None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.errors.I2cChecksumError" title="(in Sensirion I²C Python Driver v1.0.1)"><strong>I2cChecksumError</strong></a> – If a received CRC was wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStartContinuousMeasurementWithMassFlowTCompAndAveraging">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sdp.sdp.commands.</code><code class="descname">SdpI2cCmdStartContinuousMeasurementWithMassFlowTCompAndAveraging</code><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/commands.html#SdpI2cCmdStartContinuousMeasurementWithMassFlowTCompAndAveraging"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStartContinuousMeasurementWithMassFlowTCompAndAveraging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start Continuous Measurement With Mass Flow T Comp And Averaging I²C Command</p>
+<p>This command starts continuous measurements with mass flow temperature
+compensation and the average till read feature.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The measurement command must only be sent once, if acknowledged.
+The command must not be resent or other commands must not be sent
+until the stop measurement command has been issued. After the
+start measurement command is sent, the first measurement result
+is available after 8ms. Small accuracy deviations (few % of
+reading) can occur during the next 12ms. The measured values are
+updated every 0.5ms and can be read using the read measurement
+interface.</p>
+</div>
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStartContinuousMeasurementWithMassFlowTCompAndAveraging.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/commands.html#SdpI2cCmdStartContinuousMeasurementWithMassFlowTCompAndAveraging.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStartContinuousMeasurementWithMassFlowTCompAndAveraging.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStartContinuousMeasurementWithMassFlowTCompAndAveraging.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStartContinuousMeasurementWithMassFlowTCompAndAveraging.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the CRCs of the received data from the device and returns
+the data with all CRCs removed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Received raw bytes from the read operation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The received bytes, or None if there is no data received.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bytes or None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.errors.I2cChecksumError" title="(in Sensirion I²C Python Driver v1.0.1)"><strong>I2cChecksumError</strong></a> – If a received CRC was wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStartContinuousMeasurementWithMassFlowTComp">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sdp.sdp.commands.</code><code class="descname">SdpI2cCmdStartContinuousMeasurementWithMassFlowTComp</code><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/commands.html#SdpI2cCmdStartContinuousMeasurementWithMassFlowTComp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStartContinuousMeasurementWithMassFlowTComp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start Continuous Measurement With Mass Flow T Comp I²C Command</p>
+<p>This command starts continuous measurements with mass flow temperature
+compensation.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The measurement command must only be sent once, if acknowledged.
+The command must not be resent or other commands must not be sent
+until the stop measurement command has been issued. After the
+start measurement command is sent, the first measurement result
+is available after 8ms. Small accuracy deviations (few % of
+reading) can occur during the next 12ms. The measured values are
+updated every 0.5ms and can be read using the read measurement
+interface.</p>
+</div>
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStartContinuousMeasurementWithMassFlowTComp.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/commands.html#SdpI2cCmdStartContinuousMeasurementWithMassFlowTComp.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStartContinuousMeasurementWithMassFlowTComp.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStartContinuousMeasurementWithMassFlowTComp.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStartContinuousMeasurementWithMassFlowTComp.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the CRCs of the received data from the device and returns
+the data with all CRCs removed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Received raw bytes from the read operation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The received bytes, or None if there is no data received.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bytes or None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.errors.I2cChecksumError" title="(in Sensirion I²C Python Driver v1.0.1)"><strong>I2cChecksumError</strong></a> – If a received CRC was wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStartContinuousMeasurementWithDiffPressureTCompAndAveraging">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sdp.sdp.commands.</code><code class="descname">SdpI2cCmdStartContinuousMeasurementWithDiffPressureTCompAndAveraging</code><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/commands.html#SdpI2cCmdStartContinuousMeasurementWithDiffPressureTCompAndAveraging"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStartContinuousMeasurementWithDiffPressureTCompAndAveraging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start Continuous Measurement With Diff Pressure T Comp And Averaging I²C Command</p>
+<p>This command starts continuous measurements with differential pressure
+temperature compensation and the average till read feature.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The measurement command must only be sent once, if acknowledged.
+The command must not be resent or other commands must not be sent
+until the stop measurement command has been issued. After the
+start measurement command is sent, the first measurement result
+is available after 8ms. Small accuracy deviations (few % of
+reading) can occur during the next 12ms. The measured values are
+updated every 0.5ms and can be read using the read measurement
+interface.</p>
+</div>
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStartContinuousMeasurementWithDiffPressureTCompAndAveraging.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/commands.html#SdpI2cCmdStartContinuousMeasurementWithDiffPressureTCompAndAveraging.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStartContinuousMeasurementWithDiffPressureTCompAndAveraging.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStartContinuousMeasurementWithDiffPressureTCompAndAveraging.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStartContinuousMeasurementWithDiffPressureTCompAndAveraging.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the CRCs of the received data from the device and returns
+the data with all CRCs removed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Received raw bytes from the read operation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The received bytes, or None if there is no data received.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bytes or None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.errors.I2cChecksumError" title="(in Sensirion I²C Python Driver v1.0.1)"><strong>I2cChecksumError</strong></a> – If a received CRC was wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStartContinuousMeasurementWithDiffPressureTComp">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sdp.sdp.commands.</code><code class="descname">SdpI2cCmdStartContinuousMeasurementWithDiffPressureTComp</code><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/commands.html#SdpI2cCmdStartContinuousMeasurementWithDiffPressureTComp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStartContinuousMeasurementWithDiffPressureTComp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start Continuous Measurement With Diff Pressure T Comp I²C Command</p>
+<p>This command starts continuous measurements with differential pressure
+temperature compensation.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The measurement command must only be sent once, if acknowledged.
+The command must not be resent or other commands must not be sent
+until the stop measurement command has been issued. After the
+start measurement command is sent, the first measurement result
+is available after 8ms. Small accuracy deviations (few % of
+reading) can occur during the next 12ms. The measured values are
+updated every 0.5ms and can be read using the read measurement
+interface.</p>
+</div>
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStartContinuousMeasurementWithDiffPressureTComp.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/commands.html#SdpI2cCmdStartContinuousMeasurementWithDiffPressureTComp.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStartContinuousMeasurementWithDiffPressureTComp.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStartContinuousMeasurementWithDiffPressureTComp.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStartContinuousMeasurementWithDiffPressureTComp.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the CRCs of the received data from the device and returns
+the data with all CRCs removed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Received raw bytes from the read operation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The received bytes, or None if there is no data received.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bytes or None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.errors.I2cChecksumError" title="(in Sensirion I²C Python Driver v1.0.1)"><strong>I2cChecksumError</strong></a> – If a received CRC was wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStopContinuousMeasurement">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sdp.sdp.commands.</code><code class="descname">SdpI2cCmdStopContinuousMeasurement</code><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/commands.html#SdpI2cCmdStopContinuousMeasurement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStopContinuousMeasurement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop Continuous Measurement I²C Command</p>
+<p>This command stops the continuous measurement and puts the sensor in idle
+mode. It powers off the heater and makes the sensor receptive to another
+command after 500us. The Stop command is also required when switching
+between different continuous measurement commands.</p>
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStopContinuousMeasurement.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/commands.html#SdpI2cCmdStopContinuousMeasurement.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStopContinuousMeasurement.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStopContinuousMeasurement.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStopContinuousMeasurement.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the CRCs of the received data from the device and returns
+the data with all CRCs removed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Received raw bytes from the read operation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The received bytes, or None if there is no data received.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bytes or None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.errors.I2cChecksumError" title="(in Sensirion I²C Python Driver v1.0.1)"><strong>I2cChecksumError</strong></a> – If a received CRC was wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdTriggerMeasurementWithMassFlowTCompAndAveraging">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sdp.sdp.commands.</code><code class="descname">SdpI2cCmdTriggerMeasurementWithMassFlowTCompAndAveraging</code><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/commands.html#SdpI2cCmdTriggerMeasurementWithMassFlowTCompAndAveraging"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdTriggerMeasurementWithMassFlowTCompAndAveraging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trigger Measurement With Mass Flow T Comp And Averaging I²C Command</p>
+<p>This command triggers a single shot measurement with mass flow temperature
+compensation.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">During a triggered measurement the sensor measures both
+differential pressure and temperature. The measurement starts
+directly after the command has been sent. The command needs to be
+repeated with every measurement. During the 45ms that the sensor
+is measuring, no command can be sent to the sensor. After the
+45ms the result can be read out and any command can be sent to
+the sensor.</p>
+</div>
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdTriggerMeasurementWithMassFlowTCompAndAveraging.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/commands.html#SdpI2cCmdTriggerMeasurementWithMassFlowTCompAndAveraging.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdTriggerMeasurementWithMassFlowTCompAndAveraging.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdTriggerMeasurementWithMassFlowTCompAndAveraging.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdTriggerMeasurementWithMassFlowTCompAndAveraging.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the CRCs of the received data from the device and returns
+the data with all CRCs removed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Received raw bytes from the read operation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The received bytes, or None if there is no data received.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bytes or None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.errors.I2cChecksumError" title="(in Sensirion I²C Python Driver v1.0.1)"><strong>I2cChecksumError</strong></a> – If a received CRC was wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdTriggerMeasurementWithDiffPressureTComp">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sdp.sdp.commands.</code><code class="descname">SdpI2cCmdTriggerMeasurementWithDiffPressureTComp</code><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/commands.html#SdpI2cCmdTriggerMeasurementWithDiffPressureTComp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdTriggerMeasurementWithDiffPressureTComp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trigger Measurement With Diff Pressure T Comp I²C Command</p>
+<p>This command triggers a single shot measurement with differential pressure
+temperature compensation.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">During a triggered measurement the sensor measures both
+differential pressure and temperature. The measurement starts
+directly after the command has been sent. The command needs to be
+repeated with every measurement. During the 45ms that the sensor
+is measuring, no command can be sent to the sensor. After the
+45ms the result can be read out and any command can be sent to
+the sensor.</p>
+</div>
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdTriggerMeasurementWithDiffPressureTComp.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/commands.html#SdpI2cCmdTriggerMeasurementWithDiffPressureTComp.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdTriggerMeasurementWithDiffPressureTComp.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdTriggerMeasurementWithDiffPressureTComp.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdTriggerMeasurementWithDiffPressureTComp.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the CRCs of the received data from the device and returns
+the data with all CRCs removed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Received raw bytes from the read operation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The received bytes, or None if there is no data received.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bytes or None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.errors.I2cChecksumError" title="(in Sensirion I²C Python Driver v1.0.1)"><strong>I2cChecksumError</strong></a> – If a received CRC was wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdReadMeasurement">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sdp.sdp.commands.</code><code class="descname">SdpI2cCmdReadMeasurement</code><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/commands.html#SdpI2cCmdReadMeasurement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdReadMeasurement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read Measurement I²C Command</p>
+<p>After a start continuous measurement commands, the measurement results can
+be read out at most every 0.5ms. After a triggered measurement command, the
+results can be read out when the sensor is finished with the measurement.
+The temperature and scale factor don’t need to be read out (every time).
+The read sequence can be aborted by a NACK and a STOP condition. The scale
+factor is for differential pressure in Pascal.</p>
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdReadMeasurement.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/commands.html#SdpI2cCmdReadMeasurement.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdReadMeasurement.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdReadMeasurement.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/commands.html#SdpI2cCmdReadMeasurement.interpret_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdReadMeasurement.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the CRCs of the received data from the device and returns
+the interpreted data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Received raw bytes from the read operation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><ul class="simple">
+<li>differential_pressure (:py:class:sensirion_i2c_sdp.sdp.response_types.SdpDifferentialPressure) -
+The digital calibrated differential pressure signal read from the
+sensor is a signed integer number (two’s complement number). The
+integer value is converted to the physical value by dividing
+it by the scale factor, which is returned with every measurement.</li>
+<li>temperature (:py:class:sensirion_i2c_sdp.sdp.reasponse_types.SdpTemperature) -
+The digital calibrated temperature signal read from the sensor is
+a signed integer number (two’s complement number). The integer
+value is converted to the physical value by dividing it by a
+scale factor of 200.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">tuple</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.errors.I2cChecksumError" title="(in Sensirion I²C Python Driver v1.0.1)"><strong>I2cChecksumError</strong></a> – If a received CRC was wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdEnterSleepMode">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sdp.sdp.commands.</code><code class="descname">SdpI2cCmdEnterSleepMode</code><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/commands.html#SdpI2cCmdEnterSleepMode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdEnterSleepMode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enter Sleep Mode I²C Command</p>
+<p>In sleep mode the sensor uses the minimum amount of current. The mode can
+only be entered from idle mode, i.e. when the sensor is not measuring. This
+mode is particularly useful for battery operated devices. To minimize the
+current in this mode, the complexity of the sleep mode circuit has been
+reduced as much as possible, which is mainly reflected by the way the
+sensor exits the sleep mode. In sleep mode the sensor cannot be soft reset.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Triggered mode: the sleep command can be sent after the result
+have been read out and the sensor is in idle mode. Continuous
+mode: the sleep command can be sent after a stop continuous
+measurement command has been issued and the sensor is in idle
+mode.</p>
+</div>
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdEnterSleepMode.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/commands.html#SdpI2cCmdEnterSleepMode.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdEnterSleepMode.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdEnterSleepMode.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdEnterSleepMode.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the CRCs of the received data from the device and returns
+the data with all CRCs removed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Received raw bytes from the read operation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The received bytes, or None if there is no data received.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bytes or None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.errors.I2cChecksumError" title="(in Sensirion I²C Python Driver v1.0.1)"><strong>I2cChecksumError</strong></a> – If a received CRC was wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdExitSleepMode">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sdp.sdp.commands.</code><code class="descname">SdpI2cCmdExitSleepMode</code><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/commands.html#SdpI2cCmdExitSleepMode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdExitSleepMode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exit Sleep Mode I²C Command</p>
+<p>Exit sleep mode. See the data sheet for more detailed information</p>
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdExitSleepMode.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/commands.html#SdpI2cCmdExitSleepMode.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdExitSleepMode.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdExitSleepMode.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdExitSleepMode.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the CRCs of the received data from the device and returns
+the data with all CRCs removed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Received raw bytes from the read operation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The received bytes, or None if there is no data received.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bytes or None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.errors.I2cChecksumError" title="(in Sensirion I²C Python Driver v1.0.1)"><strong>I2cChecksumError</strong></a> – If a received CRC was wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdPrepareProductIdentifier">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sdp.sdp.commands.</code><code class="descname">SdpI2cCmdPrepareProductIdentifier</code><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/commands.html#SdpI2cCmdPrepareProductIdentifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdPrepareProductIdentifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prepare Product Identifier I²C Command</p>
+<p>Prepare for reading the product identifier and sensor serial number.</p>
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdPrepareProductIdentifier.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/commands.html#SdpI2cCmdPrepareProductIdentifier.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdPrepareProductIdentifier.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdPrepareProductIdentifier.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdPrepareProductIdentifier.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the CRCs of the received data from the device and returns
+the data with all CRCs removed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Received raw bytes from the read operation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The received bytes, or None if there is no data received.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bytes or None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.errors.I2cChecksumError" title="(in Sensirion I²C Python Driver v1.0.1)"><strong>I2cChecksumError</strong></a> – If a received CRC was wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdReadProductIdentifier">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sdp.sdp.commands.</code><code class="descname">SdpI2cCmdReadProductIdentifier</code><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/commands.html#SdpI2cCmdReadProductIdentifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdReadProductIdentifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read Product Identifier I²C Command</p>
+<p>Read the product identifier and serial number of the sensor.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Make sure to call ‘prepare product identifier’ immediately
+before.</p>
+</div>
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdReadProductIdentifier.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/commands.html#SdpI2cCmdReadProductIdentifier.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdReadProductIdentifier.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.commands.SdpI2cCmdReadProductIdentifier.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/commands.html#SdpI2cCmdReadProductIdentifier.interpret_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdReadProductIdentifier.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the CRCs of the received data from the device and returns
+the interpreted data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Received raw bytes from the read operation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><ul class="simple">
+<li>product_number (int) -
+32 bit unique product and revision number. The number is listed
+in the datasheet. Note that the last 8 bits are the revision
+number and can be subject to change.</li>
+<li>serial_number (unsigned long long) 64-bit unique serial number</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">tuple</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.errors.I2cChecksumError" title="(in Sensirion I²C Python Driver v1.0.1)"><strong>I2cChecksumError</strong></a> – If a received CRC was wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="data-types">
+<h3>Data Types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="module-sensirion_i2c_sdp.sdp.response_types">
+<span id="response-types"></span><h3>Response Types<a class="headerlink" href="#module-sensirion_i2c_sdp.sdp.response_types" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="sensirion_i2c_sdp.sdp.response_types.SdpTemperature">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sdp.sdp.response_types.</code><code class="descname">SdpTemperature</code><span class="sig-paren">(</span><em>ticks</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/response_types.html#SdpTemperature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.response_types.SdpTemperature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a measurement response for the temperature.</p>
+<p>With the <a class="reference internal" href="#sensirion_i2c_sdp.sdp.response_types.SdpTemperature.ticks" title="sensirion_i2c_sdp.sdp.response_types.SdpTemperature.ticks"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ticks</span></code></a> you can access the raw data as received from the
+device. For the converted values you can choose between
+<a class="reference internal" href="#sensirion_i2c_sdp.sdp.response_types.SdpTemperature.degrees_celsius" title="sensirion_i2c_sdp.sdp.response_types.SdpTemperature.degrees_celsius"><code class="xref py py-attr docutils literal notranslate"><span class="pre">degrees_celsius</span></code></a> and <a class="reference internal" href="#sensirion_i2c_sdp.sdp.response_types.SdpTemperature.degrees_fahrenheit" title="sensirion_i2c_sdp.sdp.response_types.SdpTemperature.degrees_fahrenheit"><code class="xref py py-attr docutils literal notranslate"><span class="pre">degrees_fahrenheit</span></code></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ticks</strong> (<em>int</em>) – The read ticks as received from the device.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.response_types.SdpTemperature.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>ticks</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/response_types.html#SdpTemperature.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.response_types.SdpTemperature.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an instance from the received raw data.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_i2c_sdp.sdp.response_types.SdpTemperature.ticks">
+<code class="descname">ticks</code><a class="headerlink" href="#sensirion_i2c_sdp.sdp.response_types.SdpTemperature.ticks" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ticks (int) as received from the device.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_i2c_sdp.sdp.response_types.SdpTemperature.degrees_celsius">
+<code class="descname">degrees_celsius</code><a class="headerlink" href="#sensirion_i2c_sdp.sdp.response_types.SdpTemperature.degrees_celsius" title="Permalink to this definition">¶</a></dt>
+<dd><p>The converted temperature in °C.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_i2c_sdp.sdp.response_types.SdpTemperature.degrees_fahrenheit">
+<code class="descname">degrees_fahrenheit</code><a class="headerlink" href="#sensirion_i2c_sdp.sdp.response_types.SdpTemperature.degrees_fahrenheit" title="Permalink to this definition">¶</a></dt>
+<dd><p>The converted temperature in °F.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sensirion_i2c_sdp.sdp.response_types.SdpDifferentialPressure">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sdp.sdp.response_types.</code><code class="descname">SdpDifferentialPressure</code><span class="sig-paren">(</span><em>ticks</em>, <em>scale_factor</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/response_types.html#SdpDifferentialPressure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.response_types.SdpDifferentialPressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a measurement response for the differential pressure.</p>
+<p>With the <a class="reference internal" href="#sensirion_i2c_sdp.sdp.response_types.SdpDifferentialPressure.ticks" title="sensirion_i2c_sdp.sdp.response_types.SdpDifferentialPressure.ticks"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ticks</span></code></a> you can access the raw data as received from the
+device. For the converted value the <a class="reference internal" href="#sensirion_i2c_sdp.sdp.response_types.SdpDifferentialPressure.pascal" title="sensirion_i2c_sdp.sdp.response_types.SdpDifferentialPressure.pascal"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pascal</span></code></a> attribute is
+available.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ticks</strong> (<em>int</em>) – The read ticks as received from the device.</li>
+<li><strong>scale_factor</strong> (<em>int</em>) – The read scaling factor to convert the received differential pressure
+ticks as received from the sensor into Pascal.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="sensirion_i2c_sdp.sdp.response_types.SdpDifferentialPressure.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>ticks</em>, <em>scale_factor</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sdp/sdp/response_types.html#SdpDifferentialPressure.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sdp.sdp.response_types.SdpDifferentialPressure.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an instance from the received raw data.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_i2c_sdp.sdp.response_types.SdpDifferentialPressure.ticks">
+<code class="descname">ticks</code><a class="headerlink" href="#sensirion_i2c_sdp.sdp.response_types.SdpDifferentialPressure.ticks" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ticks (int) as received from the device.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_i2c_sdp.sdp.response_types.SdpDifferentialPressure.scale_factor">
+<code class="descname">scale_factor</code><a class="headerlink" href="#sensirion_i2c_sdp.sdp.response_types.SdpDifferentialPressure.scale_factor" title="Permalink to this definition">¶</a></dt>
+<dd><p>The scale factor (int) as received from the device.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_i2c_sdp.sdp.response_types.SdpDifferentialPressure.pascal">
+<code class="descname">pascal</code><a class="headerlink" href="#sensirion_i2c_sdp.sdp.response_types.SdpDifferentialPressure.pascal" title="Permalink to this definition">¶</a></dt>
+<dd><p>The converted concentration in vol%.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="quickstart.html" class="btn btn-neutral float-left" title="Quick Start" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021 Sensirion AG, Switzerland
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: 0.1.0
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Tags</dt>
+            <dd><a href="api.html">0.1.0</a></dd>
+        </dl>
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="../master/api.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
