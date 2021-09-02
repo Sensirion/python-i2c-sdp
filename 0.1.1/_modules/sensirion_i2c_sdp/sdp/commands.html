@@ -1,0 +1,691 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>sensirion_i2c_sdp.sdp.commands &mdash; sensirion-i2c-sdp 0.1.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/banner.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> sensirion-i2c-sdp
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">API Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">sensirion-i2c-sdp</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>sensirion_i2c_sdp.sdp.commands</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for sensirion_i2c_sdp.sdp.commands</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># (c) Copyright 2021 Sensirion AG, Switzerland</span>
+
+<span class="c1">##############################################################################</span>
+<span class="c1">##############################################################################</span>
+<span class="c1">#                 _____         _    _ _______ _____ ____  _   _</span>
+<span class="c1">#                / ____|   /\  | |  | |__   __|_   _/ __ \| \ | |</span>
+<span class="c1">#               | |       /  \ | |  | |  | |    | || |  | |  \| |</span>
+<span class="c1">#               | |      / /\ \| |  | |  | |    | || |  | | . ` |</span>
+<span class="c1">#               | |____ / ____ \ |__| |  | |   _| || |__| | |\  |</span>
+<span class="c1">#                \_____/_/    \_\____/   |_|  |_____\____/|_| \_|</span>
+<span class="c1">#</span>
+<span class="c1">#     THIS FILE IS AUTOMATICALLY GENERATED AND MUST NOT BE EDITED MANUALLY!</span>
+<span class="c1">#</span>
+<span class="c1"># Generator:    sensirion-i2c-interface-generator 0.3.0</span>
+<span class="c1"># Product:      SDP</span>
+<span class="c1"># Version:      0.1.0</span>
+<span class="c1">#</span>
+<span class="c1">##############################################################################</span>
+<span class="c1">##############################################################################</span>
+
+<span class="c1"># flake8: noqa</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">struct</span> <span class="kn">import</span> <span class="n">unpack</span>
+
+<span class="kn">from</span> <span class="nn">sensirion_i2c_driver</span> <span class="kn">import</span> <span class="n">SensirionI2cCommand</span><span class="p">,</span> <span class="n">CrcCalculator</span>
+
+<span class="kn">from</span> <span class="nn">sensirion_i2c_sdp.sdp.response_types</span> <span class="kn">import</span> <span class="n">SdpDifferentialPressure</span><span class="p">,</span> <span class="n">SdpTemperature</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="SdpI2cCmdBase"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdBase">[docs]</a><span class="k">class</span> <span class="nc">SdpI2cCmdBase</span><span class="p">(</span><span class="n">SensirionI2cCommand</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    SDP I²C base command.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SdpI2cCmdBase.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdBase.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">tx_data</span><span class="p">,</span> <span class="n">rx_length</span><span class="p">,</span> <span class="n">read_delay</span><span class="p">,</span> <span class="n">timeout</span><span class="p">,</span>
+                 <span class="n">post_processing_time</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructs a new SDP I²C command.</span>
+
+<span class="sd">        :param int/None command:</span>
+<span class="sd">            The command ID to be sent to the device. None means that no</span>
+<span class="sd">            command will be sent, i.e. only ``tx_data`` (if not None) will</span>
+<span class="sd">            be sent. No CRC is added to these bytes since the command ID</span>
+<span class="sd">            usually already contains a CRC.</span>
+<span class="sd">        :param bytes-like/list/None tx_data:</span>
+<span class="sd">            Bytes to be extended with CRCs and then sent to the I²C device.</span>
+<span class="sd">            None means that no write header will be sent at all (if ``command``</span>
+<span class="sd">            is None too). An empty list means to send the write header (even if</span>
+<span class="sd">            ``command`` is None), but without data following it.</span>
+<span class="sd">        :param int/None rx_length:</span>
+<span class="sd">            Number of bytes to be read from the I²C device, including CRC</span>
+<span class="sd">            bytes. None means that no read header is sent at all. Zero means</span>
+<span class="sd">            to send the read header, but without reading any data.</span>
+<span class="sd">        :param float read_delay:</span>
+<span class="sd">            Delay (in Seconds) to be inserted between the end of the write</span>
+<span class="sd">            operation and the beginning of the read operation. This is needed</span>
+<span class="sd">            if the device needs some time to prepare the RX data, e.g. if it</span>
+<span class="sd">            has to perform a measurement. Set to 0.0 to indicate that no delay</span>
+<span class="sd">            is needed, i.e. the device does not need any processing time.</span>
+<span class="sd">        :param float timeout:</span>
+<span class="sd">            Timeout (in Seconds) to be used in case of clock stretching. If the</span>
+<span class="sd">            device stretches the clock longer than this value, the transceive</span>
+<span class="sd">            operation will be aborted with a timeout error. Set to 0.0 to</span>
+<span class="sd">            indicate that the device will not stretch the clock for this</span>
+<span class="sd">            command.</span>
+<span class="sd">        :param float post_processing_time:</span>
+<span class="sd">            Maximum time in seconds the device needs for post processing of</span>
+<span class="sd">            this command until it is ready to receive the next command. For</span>
+<span class="sd">            example after a device reset command, the device might need some</span>
+<span class="sd">            time until it is ready again. Usually this is 0.0s, i.e. no post</span>
+<span class="sd">            processing is needed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SdpI2cCmdBase</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">command</span><span class="o">=</span><span class="n">command</span><span class="p">,</span>
+            <span class="n">tx_data</span><span class="o">=</span><span class="n">tx_data</span><span class="p">,</span>
+            <span class="n">rx_length</span><span class="o">=</span><span class="n">rx_length</span><span class="p">,</span>
+            <span class="n">read_delay</span><span class="o">=</span><span class="n">read_delay</span><span class="p">,</span>
+            <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span>
+            <span class="n">crc</span><span class="o">=</span><span class="n">CrcCalculator</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mh">0x31</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">),</span>
+            <span class="n">command_bytes</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+            <span class="n">post_processing_time</span><span class="o">=</span><span class="n">post_processing_time</span><span class="p">,</span>
+        <span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="SdpI2cCmdStartContinuousMeasurementWithMassFlowTCompAndAveraging"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStartContinuousMeasurementWithMassFlowTCompAndAveraging">[docs]</a><span class="k">class</span> <span class="nc">SdpI2cCmdStartContinuousMeasurementWithMassFlowTCompAndAveraging</span><span class="p">(</span><span class="n">SdpI2cCmdBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Start Continuous Measurement With Mass Flow T Comp And Averaging I²C Command</span>
+
+<span class="sd">    This command starts continuous measurements with mass flow temperature</span>
+<span class="sd">    compensation and the average till read feature.</span>
+
+<span class="sd">    .. note:: The measurement command must only be sent once, if acknowledged.</span>
+<span class="sd">              The command must not be resent or other commands must not be sent</span>
+<span class="sd">              until the stop measurement command has been issued. After the</span>
+<span class="sd">              start measurement command is sent, the first measurement result</span>
+<span class="sd">              is available after 8ms. Small accuracy deviations (few % of</span>
+<span class="sd">              reading) can occur during the next 12ms. The measured values are</span>
+<span class="sd">              updated every 0.5ms and can be read using the read measurement</span>
+<span class="sd">              interface.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SdpI2cCmdStartContinuousMeasurementWithMassFlowTCompAndAveraging.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStartContinuousMeasurementWithMassFlowTCompAndAveraging.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SdpI2cCmdStartContinuousMeasurementWithMassFlowTCompAndAveraging</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">command</span><span class="o">=</span><span class="mh">0x3603</span><span class="p">,</span>
+            <span class="n">tx_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">rx_length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">read_delay</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+            <span class="n">timeout</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">post_processing_time</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+        <span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="SdpI2cCmdStartContinuousMeasurementWithMassFlowTComp"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStartContinuousMeasurementWithMassFlowTComp">[docs]</a><span class="k">class</span> <span class="nc">SdpI2cCmdStartContinuousMeasurementWithMassFlowTComp</span><span class="p">(</span><span class="n">SdpI2cCmdBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Start Continuous Measurement With Mass Flow T Comp I²C Command</span>
+
+<span class="sd">    This command starts continuous measurements with mass flow temperature</span>
+<span class="sd">    compensation.</span>
+
+<span class="sd">    .. note:: The measurement command must only be sent once, if acknowledged.</span>
+<span class="sd">              The command must not be resent or other commands must not be sent</span>
+<span class="sd">              until the stop measurement command has been issued. After the</span>
+<span class="sd">              start measurement command is sent, the first measurement result</span>
+<span class="sd">              is available after 8ms. Small accuracy deviations (few % of</span>
+<span class="sd">              reading) can occur during the next 12ms. The measured values are</span>
+<span class="sd">              updated every 0.5ms and can be read using the read measurement</span>
+<span class="sd">              interface.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SdpI2cCmdStartContinuousMeasurementWithMassFlowTComp.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStartContinuousMeasurementWithMassFlowTComp.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SdpI2cCmdStartContinuousMeasurementWithMassFlowTComp</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">command</span><span class="o">=</span><span class="mh">0x3608</span><span class="p">,</span>
+            <span class="n">tx_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">rx_length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">read_delay</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+            <span class="n">timeout</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">post_processing_time</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+        <span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="SdpI2cCmdStartContinuousMeasurementWithDiffPressureTCompAndAveraging"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStartContinuousMeasurementWithDiffPressureTCompAndAveraging">[docs]</a><span class="k">class</span> <span class="nc">SdpI2cCmdStartContinuousMeasurementWithDiffPressureTCompAndAveraging</span><span class="p">(</span><span class="n">SdpI2cCmdBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Start Continuous Measurement With Diff Pressure T Comp And Averaging I²C Command</span>
+
+<span class="sd">    This command starts continuous measurements with differential pressure</span>
+<span class="sd">    temperature compensation and the average till read feature.</span>
+
+<span class="sd">    .. note:: The measurement command must only be sent once, if acknowledged.</span>
+<span class="sd">              The command must not be resent or other commands must not be sent</span>
+<span class="sd">              until the stop measurement command has been issued. After the</span>
+<span class="sd">              start measurement command is sent, the first measurement result</span>
+<span class="sd">              is available after 8ms. Small accuracy deviations (few % of</span>
+<span class="sd">              reading) can occur during the next 12ms. The measured values are</span>
+<span class="sd">              updated every 0.5ms and can be read using the read measurement</span>
+<span class="sd">              interface.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SdpI2cCmdStartContinuousMeasurementWithDiffPressureTCompAndAveraging.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStartContinuousMeasurementWithDiffPressureTCompAndAveraging.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SdpI2cCmdStartContinuousMeasurementWithDiffPressureTCompAndAveraging</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">command</span><span class="o">=</span><span class="mh">0x3615</span><span class="p">,</span>
+            <span class="n">tx_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">rx_length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">read_delay</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+            <span class="n">timeout</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">post_processing_time</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+        <span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="SdpI2cCmdStartContinuousMeasurementWithDiffPressureTComp"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStartContinuousMeasurementWithDiffPressureTComp">[docs]</a><span class="k">class</span> <span class="nc">SdpI2cCmdStartContinuousMeasurementWithDiffPressureTComp</span><span class="p">(</span><span class="n">SdpI2cCmdBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Start Continuous Measurement With Diff Pressure T Comp I²C Command</span>
+
+<span class="sd">    This command starts continuous measurements with differential pressure</span>
+<span class="sd">    temperature compensation.</span>
+
+<span class="sd">    .. note:: The measurement command must only be sent once, if acknowledged.</span>
+<span class="sd">              The command must not be resent or other commands must not be sent</span>
+<span class="sd">              until the stop measurement command has been issued. After the</span>
+<span class="sd">              start measurement command is sent, the first measurement result</span>
+<span class="sd">              is available after 8ms. Small accuracy deviations (few % of</span>
+<span class="sd">              reading) can occur during the next 12ms. The measured values are</span>
+<span class="sd">              updated every 0.5ms and can be read using the read measurement</span>
+<span class="sd">              interface.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SdpI2cCmdStartContinuousMeasurementWithDiffPressureTComp.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStartContinuousMeasurementWithDiffPressureTComp.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SdpI2cCmdStartContinuousMeasurementWithDiffPressureTComp</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">command</span><span class="o">=</span><span class="mh">0x361E</span><span class="p">,</span>
+            <span class="n">tx_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">rx_length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">read_delay</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+            <span class="n">timeout</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">post_processing_time</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+        <span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="SdpI2cCmdStopContinuousMeasurement"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStopContinuousMeasurement">[docs]</a><span class="k">class</span> <span class="nc">SdpI2cCmdStopContinuousMeasurement</span><span class="p">(</span><span class="n">SdpI2cCmdBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Stop Continuous Measurement I²C Command</span>
+
+<span class="sd">    This command stops the continuous measurement and puts the sensor in idle</span>
+<span class="sd">    mode. It powers off the heater and makes the sensor receptive to another</span>
+<span class="sd">    command after 500us. The Stop command is also required when switching</span>
+<span class="sd">    between different continuous measurement commands.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SdpI2cCmdStopContinuousMeasurement.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdStopContinuousMeasurement.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SdpI2cCmdStopContinuousMeasurement</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">command</span><span class="o">=</span><span class="mh">0x3FF9</span><span class="p">,</span>
+            <span class="n">tx_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">rx_length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">read_delay</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+            <span class="n">timeout</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">post_processing_time</span><span class="o">=</span><span class="mf">0.0005</span><span class="p">,</span>
+        <span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="SdpI2cCmdTriggerMeasurementWithMassFlowTCompAndAveraging"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdTriggerMeasurementWithMassFlowTCompAndAveraging">[docs]</a><span class="k">class</span> <span class="nc">SdpI2cCmdTriggerMeasurementWithMassFlowTCompAndAveraging</span><span class="p">(</span><span class="n">SdpI2cCmdBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Trigger Measurement With Mass Flow T Comp And Averaging I²C Command</span>
+
+<span class="sd">    This command triggers a single shot measurement with mass flow temperature</span>
+<span class="sd">    compensation.</span>
+
+<span class="sd">    .. note:: During a triggered measurement the sensor measures both</span>
+<span class="sd">              differential pressure and temperature. The measurement starts</span>
+<span class="sd">              directly after the command has been sent. The command needs to be</span>
+<span class="sd">              repeated with every measurement. During the 45ms that the sensor</span>
+<span class="sd">              is measuring, no command can be sent to the sensor. After the</span>
+<span class="sd">              45ms the result can be read out and any command can be sent to</span>
+<span class="sd">              the sensor.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SdpI2cCmdTriggerMeasurementWithMassFlowTCompAndAveraging.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdTriggerMeasurementWithMassFlowTCompAndAveraging.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SdpI2cCmdTriggerMeasurementWithMassFlowTCompAndAveraging</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">command</span><span class="o">=</span><span class="mh">0x3624</span><span class="p">,</span>
+            <span class="n">tx_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">rx_length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">read_delay</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+            <span class="n">timeout</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">post_processing_time</span><span class="o">=</span><span class="mf">0.045</span><span class="p">,</span>
+        <span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="SdpI2cCmdTriggerMeasurementWithDiffPressureTComp"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdTriggerMeasurementWithDiffPressureTComp">[docs]</a><span class="k">class</span> <span class="nc">SdpI2cCmdTriggerMeasurementWithDiffPressureTComp</span><span class="p">(</span><span class="n">SdpI2cCmdBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Trigger Measurement With Diff Pressure T Comp I²C Command</span>
+
+<span class="sd">    This command triggers a single shot measurement with differential pressure</span>
+<span class="sd">    temperature compensation.</span>
+
+<span class="sd">    .. note:: During a triggered measurement the sensor measures both</span>
+<span class="sd">              differential pressure and temperature. The measurement starts</span>
+<span class="sd">              directly after the command has been sent. The command needs to be</span>
+<span class="sd">              repeated with every measurement. During the 45ms that the sensor</span>
+<span class="sd">              is measuring, no command can be sent to the sensor. After the</span>
+<span class="sd">              45ms the result can be read out and any command can be sent to</span>
+<span class="sd">              the sensor.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SdpI2cCmdTriggerMeasurementWithDiffPressureTComp.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdTriggerMeasurementWithDiffPressureTComp.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SdpI2cCmdTriggerMeasurementWithDiffPressureTComp</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">command</span><span class="o">=</span><span class="mh">0x362F</span><span class="p">,</span>
+            <span class="n">tx_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">rx_length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">read_delay</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+            <span class="n">timeout</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">post_processing_time</span><span class="o">=</span><span class="mf">0.045</span><span class="p">,</span>
+        <span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="SdpI2cCmdReadMeasurement"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdReadMeasurement">[docs]</a><span class="k">class</span> <span class="nc">SdpI2cCmdReadMeasurement</span><span class="p">(</span><span class="n">SdpI2cCmdBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Read Measurement I²C Command</span>
+
+<span class="sd">    After a start continuous measurement commands, the measurement results can</span>
+<span class="sd">    be read out at most every 0.5ms. After a triggered measurement command, the</span>
+<span class="sd">    results can be read out when the sensor is finished with the measurement.</span>
+<span class="sd">    The temperature and scale factor don’t need to be read out (every time).</span>
+<span class="sd">    The read sequence can be aborted by a NACK and a STOP condition. The scale</span>
+<span class="sd">    factor is for differential pressure in Pascal.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SdpI2cCmdReadMeasurement.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdReadMeasurement.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SdpI2cCmdReadMeasurement</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">command</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">tx_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">rx_length</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span>
+            <span class="n">read_delay</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span>
+            <span class="n">timeout</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">post_processing_time</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="SdpI2cCmdReadMeasurement.interpret_response"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdReadMeasurement.interpret_response">[docs]</a>    <span class="k">def</span> <span class="nf">interpret_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Validates the CRCs of the received data from the device and returns</span>
+<span class="sd">        the interpreted data.</span>
+
+<span class="sd">        :param bytes data:</span>
+<span class="sd">            Received raw bytes from the read operation.</span>
+<span class="sd">        :return:</span>
+<span class="sd">            - differential_pressure (:py:class:sensirion_i2c_sdp.sdp.response_types.SdpDifferentialPressure) -</span>
+<span class="sd">              The digital calibrated differential pressure signal read from the</span>
+<span class="sd">              sensor is a signed integer number (two&#39;s complement number). The</span>
+<span class="sd">              integer value is converted to the physical value by dividing</span>
+<span class="sd">              it by the scale factor, which is returned with every measurement.</span>
+<span class="sd">            - temperature (:py:class:sensirion_i2c_sdp.sdp.reasponse_types.SdpTemperature) -</span>
+<span class="sd">              The digital calibrated temperature signal read from the sensor is</span>
+<span class="sd">              a signed integer number (two&#39;s complement number). The integer</span>
+<span class="sd">              value is converted to the physical value by dividing it by a</span>
+<span class="sd">              scale factor of 200.</span>
+<span class="sd">        :rtype: tuple</span>
+<span class="sd">        :raise ~sensirion_i2c_driver.errors.I2cChecksumError:</span>
+<span class="sd">            If a received CRC was wrong.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># check and remove CRCs</span>
+        <span class="n">checked_data</span> <span class="o">=</span> <span class="n">SdpI2cCmdBase</span><span class="o">.</span><span class="n">interpret_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+
+        <span class="c1"># convert raw received data into proper data types</span>
+        <span class="n">differential_pressure_ticks</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;&gt;h&quot;</span><span class="p">,</span> <span class="n">checked_data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># int16</span>
+        <span class="n">temperature_ticks</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;&gt;h&quot;</span><span class="p">,</span> <span class="n">checked_data</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">])[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># int16</span>
+        <span class="n">scaling_factor</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;&gt;h&quot;</span><span class="p">,</span> <span class="n">checked_data</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">])[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># int16</span>
+        <span class="k">return</span> <span class="n">SdpDifferentialPressure</span><span class="p">(</span><span class="n">differential_pressure_ticks</span><span class="p">,</span> <span class="n">scaling_factor</span><span class="p">),</span> <span class="n">SdpTemperature</span><span class="p">(</span><span class="n">temperature_ticks</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="SdpI2cCmdEnterSleepMode"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdEnterSleepMode">[docs]</a><span class="k">class</span> <span class="nc">SdpI2cCmdEnterSleepMode</span><span class="p">(</span><span class="n">SdpI2cCmdBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Enter Sleep Mode I²C Command</span>
+
+<span class="sd">    In sleep mode the sensor uses the minimum amount of current. The mode can</span>
+<span class="sd">    only be entered from idle mode, i.e. when the sensor is not measuring. This</span>
+<span class="sd">    mode is particularly useful for battery operated devices. To minimize the</span>
+<span class="sd">    current in this mode, the complexity of the sleep mode circuit has been</span>
+<span class="sd">    reduced as much as possible, which is mainly reflected by the way the</span>
+<span class="sd">    sensor exits the sleep mode. In sleep mode the sensor cannot be soft reset.</span>
+
+<span class="sd">    .. note:: Triggered mode: the sleep command can be sent after the result</span>
+<span class="sd">              have been read out and the sensor is in idle mode. Continuous</span>
+<span class="sd">              mode: the sleep command can be sent after a stop continuous</span>
+<span class="sd">              measurement command has been issued and the sensor is in idle</span>
+<span class="sd">              mode.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SdpI2cCmdEnterSleepMode.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdEnterSleepMode.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SdpI2cCmdEnterSleepMode</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">command</span><span class="o">=</span><span class="mh">0x3677</span><span class="p">,</span>
+            <span class="n">tx_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">rx_length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">read_delay</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+            <span class="n">timeout</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">post_processing_time</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="SdpI2cCmdExitSleepMode"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdExitSleepMode">[docs]</a><span class="k">class</span> <span class="nc">SdpI2cCmdExitSleepMode</span><span class="p">(</span><span class="n">SdpI2cCmdBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Exit Sleep Mode I²C Command</span>
+
+<span class="sd">    Exit sleep mode. See the data sheet for more detailed information</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SdpI2cCmdExitSleepMode.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdExitSleepMode.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SdpI2cCmdExitSleepMode</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">command</span><span class="o">=</span><span class="mh">0x0002</span><span class="p">,</span>
+            <span class="n">tx_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">rx_length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">read_delay</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+            <span class="n">timeout</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">post_processing_time</span><span class="o">=</span><span class="mf">0.002</span><span class="p">,</span>
+        <span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="SdpI2cCmdPrepareProductIdentifier"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdPrepareProductIdentifier">[docs]</a><span class="k">class</span> <span class="nc">SdpI2cCmdPrepareProductIdentifier</span><span class="p">(</span><span class="n">SdpI2cCmdBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Prepare Product Identifier I²C Command</span>
+
+<span class="sd">    Prepare for reading the product identifier and sensor serial number.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SdpI2cCmdPrepareProductIdentifier.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdPrepareProductIdentifier.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SdpI2cCmdPrepareProductIdentifier</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">command</span><span class="o">=</span><span class="mh">0x367C</span><span class="p">,</span>
+            <span class="n">tx_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">rx_length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">read_delay</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+            <span class="n">timeout</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">post_processing_time</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="SdpI2cCmdReadProductIdentifier"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdReadProductIdentifier">[docs]</a><span class="k">class</span> <span class="nc">SdpI2cCmdReadProductIdentifier</span><span class="p">(</span><span class="n">SdpI2cCmdBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Read Product Identifier I²C Command</span>
+
+<span class="sd">    Read the product identifier and serial number of the sensor.</span>
+
+<span class="sd">    .. note:: Make sure to call &#39;prepare product identifier&#39; immediately</span>
+<span class="sd">              before.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="SdpI2cCmdReadProductIdentifier.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdReadProductIdentifier.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SdpI2cCmdReadProductIdentifier</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">command</span><span class="o">=</span><span class="mh">0xE102</span><span class="p">,</span>
+            <span class="n">tx_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">rx_length</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span>
+            <span class="n">read_delay</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span>
+            <span class="n">timeout</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">post_processing_time</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="SdpI2cCmdReadProductIdentifier.interpret_response"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sdp.sdp.commands.SdpI2cCmdReadProductIdentifier.interpret_response">[docs]</a>    <span class="k">def</span> <span class="nf">interpret_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Validates the CRCs of the received data from the device and returns</span>
+<span class="sd">        the interpreted data.</span>
+
+<span class="sd">        :param bytes data:</span>
+<span class="sd">            Received raw bytes from the read operation.</span>
+<span class="sd">        :return:</span>
+<span class="sd">            - product_number (int) -</span>
+<span class="sd">              32 bit unique product and revision number. The number is listed</span>
+<span class="sd">              in the datasheet. Note that the last 8 bits are the revision</span>
+<span class="sd">              number and can be subject to change.</span>
+<span class="sd">            - serial_number (unsigned long long) 64-bit unique serial number</span>
+<span class="sd">        :rtype: tuple</span>
+<span class="sd">        :raise ~sensirion_i2c_driver.errors.I2cChecksumError:</span>
+<span class="sd">            If a received CRC was wrong.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># check and remove CRCs</span>
+        <span class="n">checked_data</span> <span class="o">=</span> <span class="n">SdpI2cCmdBase</span><span class="o">.</span><span class="n">interpret_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+
+        <span class="c1"># convert raw received data into proper data types</span>
+        <span class="n">product_number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;&gt;I&quot;</span><span class="p">,</span> <span class="n">checked_data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">])[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># uint32</span>
+        <span class="n">serial_number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;&gt;Q&quot;</span><span class="p">,</span> <span class="n">checked_data</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">12</span><span class="p">])[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># uint64</span>
+        <span class="k">return</span> <span class="n">product_number</span><span class="p">,</span> <span class="n">serial_number</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021 Sensirion AG, Switzerland
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: 0.1.1
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Tags</dt>
+            <dd><a href="../../../../0.1.0/index.html">0.1.0</a></dd>
+            <dd><a href="commands.html">0.1.1</a></dd>
+        </dl>
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="../../../../master/index.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
